@@ -1,5 +1,4 @@
 import { extendTheme , ThemeConfig } from "@chakra-ui/react";
-
 const config : ThemeConfig = {
     initialColorMode : 'dark'
 }
@@ -19,7 +18,12 @@ const theme = extendTheme({
             800 : '#121212',
             900 : '111'
         }
-    }
+    },
+
+    fonts: {
+        heading: "'Roboto Mono', sans-serif",
+        body: "'Roboto Mono', sans-serif",
+      },
 })
 
 export default theme;
