@@ -10,7 +10,6 @@ import {
 import { Genre } from "../hooks/useGenres";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/img-url";
-import { FetchGenresResponse } from "../services/api-client";
 
 interface Props {
   onSelectGenres: (genre: Genre) => void;
