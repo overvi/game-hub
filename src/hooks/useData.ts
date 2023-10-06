@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { AxiosRequestConfig, CanceledError } from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { AxiosRequestConfig, CanceledError } from "axios";
+import apiClient from "../services/api-client";
+import { FetchGenresResponse } from "../services/api-client";
 
-export interface FetchGenresResponse<T> {
-  count: number;
-  results: T[];
-}
+
 const controller = new AbortController()
   const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => 
   useQuery<FetchGenresResponse<T> , Error>({
