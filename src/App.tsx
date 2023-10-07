@@ -8,6 +8,8 @@ import PlatformSelector from "./Components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./Components/SortSelector";
 import GameHeading from "./Components/GameHeading";
+import useGames, { Game } from "./hooks/useGames";
+import APIclient from "./services/api-client";
 
 export interface GameQuery {
   genre: Genre | null;
