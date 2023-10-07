@@ -1,19 +1,15 @@
-import { useState } from "react";
 import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./Components/NavBar";
+import { useState } from "react";
 import GameGrid from "./Components/GameGrid";
-import GenreList from "./Components/GenreList";
-import { Genre } from "./hooks/useGenres";
-import PlatformSelector from "./Components/PlatformSelector";
-import { Platform } from "./hooks/usePlatforms";
-import SortSelector from "./Components/SortSelector";
 import GameHeading from "./Components/GameHeading";
-import useGames, { Game } from "./hooks/useGames";
-import APIclient from "./services/api-client";
+import GenreList from "./Components/GenreList";
+import NavBar from "./Components/NavBar";
+import PlatformSelector from "./Components/PlatformSelector";
+import SortSelector from "./Components/SortSelector";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -39,8 +35,10 @@ const App = () => {
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
           <GenreList
-            selectedGenre={gameQuery.genre}
-            onSelectGenres={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenre={gameQuery.genreId}
+            onSelectGenres={(genreId) =>
+              setGameQuery({ ...gameQuery, genreId })
+            }
           ></GenreList>
         </GridItem>
       </Show>
@@ -50,9 +48,9 @@ const App = () => {
           <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
-                onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                selectedPlatform={gameQuery.platformId}
+                onSelectPlatform={(platformId) =>
+                  setGameQuery({ ...gameQuery, platformId })
                 }
               ></PlatformSelector>
             </Box>
