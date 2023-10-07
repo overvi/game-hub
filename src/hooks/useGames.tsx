@@ -3,6 +3,7 @@ import { GameQuery } from "../App";
 import APIclient, { FetchGenresResponse } from "../services/api-client";
 import { Platform } from "./usePlatforms";
 import InfiniteScroll from "react-infinite-scroll-component";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -32,7 +33,7 @@ const useGames = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.results.length > 0 ? allPages.length + 1 : undefined;
     },
-    staleTime: 60 * 24 * 24 * 1000,
+    staleTime: ms("24h"),
   });
 
 export default useGames;
