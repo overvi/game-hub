@@ -15,7 +15,7 @@ const useGenres = () => useQuery({
     queryFn : fetchGenre.getAllData,
 
     staleTime : 20 * 60 * 60 * 1000,
-    initialData : {count : genres.results.length , results : genres.results}
+    initialData : {count : genres.results.length , results : genres.results , }
     
 })
 
