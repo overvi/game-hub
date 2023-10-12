@@ -3,6 +3,8 @@ import ms from "ms";
 import useGameQueryStore from "../client/gameQueryStore";
 import APIclient, { FetchGenresResponse } from "../services/api-client";
 import { Platform } from "./usePlatforms";
+import { Genre } from "./useGenres";
+import { Publishers } from "../entities/publishers";
 
 export interface Game {
   id: number;
@@ -13,6 +15,10 @@ export interface Game {
   page: number;
   page_size: number;
   slug: string;
+  rating: number;
+  description_raw: string;
+  genres: Genre[];
+  publishers: Publishers[];
 }
 
 const fetchGame = new APIclient<Game>("/games");

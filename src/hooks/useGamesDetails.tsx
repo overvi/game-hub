@@ -1,17 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import APIclient, { axiosInstance } from "../services/api-client";
-
-interface Details {
-  name: string;
-  rating: number;
-  description_raw: string;
-}
+import { Game } from "./useGames";
 
 const useGamesDetails = (slug: string) => {
-  const apiInstance = new APIclient<Details>(`games/${slug}`);
+  const apiInstance = new APIclient<Game>("/games");
   return useQuery({
-    queryKey: ["games"],
-    queryFn: apiInstance.getAllData,
+    queryKey: ["games", slug],
+    queryFn: () => apiInstance.getDetails(slug),
   });
 };
 

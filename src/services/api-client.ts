@@ -3,9 +3,6 @@ import axios, { AxiosRequestConfig } from "axios"
 export interface FetchGenresResponse<T> {
     count: number;
     results: T[];
-
-    name ?: string;
-    description_raw ?: string
   }
 
 
@@ -23,6 +20,12 @@ class APIclient<T> {
       return axiosInstance
         .get<FetchGenresResponse<T>>(this.endPoint , config)
         .then(res => res.data)
+    }
+
+    getDetails = (slug : string | number) => {
+      return axiosInstance
+      .get<T>(this.endPoint + '/' + slug)
+      .then(res => res.data)
     }
 }
 
