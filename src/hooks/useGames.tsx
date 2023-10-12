@@ -19,6 +19,7 @@ export interface Game {
   description_raw: string;
   genres: Genre[];
   publishers: Publishers[];
+  preview: string;
 }
 
 const fetchGame = new APIclient<Game>("/games");
