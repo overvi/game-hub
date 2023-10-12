@@ -12,6 +12,7 @@ export interface Game {
   metacritic: number;
   page: number;
   page_size: number;
+  slug: string;
 }
 
 const fetchGame = new APIclient<Game>("/games");

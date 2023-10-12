@@ -3,10 +3,13 @@ import axios, { AxiosRequestConfig } from "axios"
 export interface FetchGenresResponse<T> {
     count: number;
     results: T[];
-  }
-  
 
-const axiosInstance = axios.create ({
+    name ?: string;
+    description_raw ?: string
+  }
+
+
+export const axiosInstance = axios.create ({
     baseURL : "https://api.rawg.io/api",
     params : {
         key : "81ad36c6d2554322a74a092c17d08047"
