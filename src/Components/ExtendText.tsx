@@ -9,10 +9,9 @@ const ExtendText = ({ children }: Props) => {
   const [extended, setExtended] = useState(false);
   const limit = 300;
 
-  if (children.length < limit) return;
   return (
     <>
-      <Text display="inline">
+      <Text display={children.length < limit ? "none" : "inline"}>
         {!extended ? children.substring(0, limit) : children}...
       </Text>
       <Button
